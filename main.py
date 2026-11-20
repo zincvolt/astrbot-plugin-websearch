@@ -19,6 +19,10 @@ from astrbot.api import logger, star
 from astrbot.api.event import AstrMessageEvent, filter
 from astrbot.api.provider import ProviderRequest
 
+# 指令自声明（插件开发规范要求，见 docs/PLUGIN-DEV.md）：本插件无斜线指令
+DECLARED_COMMANDS: dict[str, tuple[str, str]] = {}
+DECLARED_BEHAVIOR = "无斜线指令：LLM 工具调用联网搜索，提问类消息自动触发（SearXNG 9000）"
+
 SEARX_URL = "http://127.0.0.1:9000/search"
 TOOL_MAX_RESULTS = 5
 AUTO_MAX_RESULTS = 4
